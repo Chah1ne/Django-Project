@@ -1,0 +1,23 @@
+{% include 'magasin/base.html' %}
+
+{% block content %}
+
+
+<form method='POST' class="post-form">
+{% csrf_token %}
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col-md-12 text-center">
+            <h2>Modifier le produit "{{ product.name }}"</h2> 
+        </div> 
+        <form method='POST' class="post-form"> 
+            {% csrf_token %} 
+            {{ form.as_p }} 
+            <button type="sumit" class="btn btn-default">Enregistrer</button> 
+        </form> 
+    {% endblock %}
+    </div>
+  </div>
+</div>
+

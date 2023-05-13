@@ -1,0 +1,16 @@
+{% include 'magasin/base.html' %} 
+<div class="col-md-12 text-center">
+    <h2>Saisie de forunisseur ...... </h2>
+</div>
+<form method='POST' class="post-form">
+    {% csrf_token %}
+    <label >Nom : </label>
+    <input id="nom" type="text" name="name_field" > <br/>
+    <label >Adresse : </label>
+    <input id="adr" type="text" name="name_field" > <br/>
+    <label >email : </label>
+    <input id="email" type="email" name="name_field" > <br/>
+    <label >telephone : </label>
+    <input id="number" type="NUMBER" name="name_field" > <br/>
+    <input type="submit" value="Enregistrer">
+</form>

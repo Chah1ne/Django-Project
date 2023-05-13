@@ -1,0 +1,35 @@
+{% include 'magasin/base.html' %}
+
+{% block content %}
+
+<form method='POST' class="post-form">
+{% csrf_token %}
+<div class="album py-5 bg-light">
+  <div class="container">
+    <button type="button" class="btn btn-sm btn-outline-secondary" ><a href="{% url 'nouveauFournisseur' %}">Ajouter un fournisseur</a></button>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for fournisseur in fou %}
+        <div class="col ">
+            <figcaption class="figure-caption"> 
+              {{fournisseur.nom}} 
+               </figcaption>
+               <p> {{fournisseur.adressse}} </p>
+               <p> {{fournisseur.email}}  </p>    
+               <p>{{fournisseur.telephone}}</p>
+               {% empty %}
+               <li>Aucun Fournisseur</li>       
+                <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" href="#">Edit</button>
+              </div>
+              <!--<small class="text-muted">19 min</small>-->
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'magasin/base.html' %}
+{% block title %} Supprimer un produit {% endblock %}
+
+{% block content %}
+  <div class="container mt-3">
+    <center>
+    <h2>Supprimer un produit</h2>
+    <p><strong><h4>Êtes-vous sûr de vouloir supprimer ce produit ?</h4></strong></p>
+  </center>
+    
+
+
+
+    <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow-lg">
+          <div class="card-header bg-success text-white">
+            <h1 class="display-4 mb-4 fw-bold text-center">{{ product.libelle }}</h1>
+          </div>
+          <div class="card-body">
+            <div class="row justify-content-center mb-3">
+              <div class="col-md-9 col-lg-9">
+                <img src="/media/{{ produit.imag }}" class="img-fluid" alt="{{ produit.libelle }}">
+              </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+              <div class="col-md-10">
+                <p class="text-muted text-center">{{ product.description }}</p>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-md-7">
+                <h3 class="text-center">Prix: {{ product.prix }}</h3>
+                <h3 class="text-center">type : {{ product.type }}</h3>
+                <h6 class="text-center"><strong>Nom fournisseur:</strong> {{ product.Fournisseur.nom }}</h6>
+                <h6 class="text-center"><strong>Mail fournisseur:</strong> {{ product.Fournisseur.email }}</h6>
+                <h6 class="text-center"><strong>Num fournisseur:</strong> {{ product.Fournisseur.telephone }}</h6>
+              </div>
+              
+            </div>
+          </div>
+          <form method="post">
+            {% csrf_token %}
+            <center> 
+                <button type="submit" class="btn btn-danger">Supprimer</button>
+                <a href="{% url 'index' %}" class="btn btn-secondary">Annuler</a>
+            </center>
+           <br>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  </div>
+{% endblock %}
